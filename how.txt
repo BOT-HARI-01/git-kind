@@ -1,0 +1,21 @@
+2/5/25:  Started to make a cli like git
+how does this work - initially we make a .col folder and we have objects, refs folders & head file 
+
+The git does not stores the files directly it converts into blob (binary large object) and compresses that blob to track the changes, as still if change the file name the if content is same the has of the blob is same, helps in tracking
+
+steps :
+    1. init:  make a .col folder with obj, refs, head files
+    2. hash files: get the file run get data length make a blob from buffer, then hash using sha-1 (40 char op), create a file in objects named with initial 2 letters of data & store it.
+    3. reading: The files are stored in objects folder or .col with each folder named with  2 characters of hash and remaining as the file name, get the file and decompress the file to retrieve the data.
+    4.commit: at createing of the commit the complete root directory is hashed with each folder and all the files hashed together the final hash returned is the hash of the root, which is stored in the .col/refs/master.
+
+
+using commands module for creating personal commands to run the code in cli
+
+
+
+
+Thing to expand:
+    now the commit and the data in files are printed in terminal it can be changed and can display the code in files
+    as we have all the history of commits, it can be expanded to display the differences btw the past commit and current code
+    
